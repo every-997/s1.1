@@ -1,20 +1,30 @@
 #include <mbed.h>
 
-void redLED(){
+void redTopLED(){
+  DigitalOut red(D5);
+  red.write(0);
+  wait(0.5);
+  red.write(1);
+  wait(0.5);
+  red.write(0);
+  wait(0.5);
+}
+
+void redBottomLED(){
   DigitalOut red(PTB22);
   red.write(0);
   wait(0.5);
   red.write(1);
   wait(0.5);
 }
-void greenLED(){
+void greenBottomLED(){
   DigitalOut green(PTE26);
   green.write(0);
   wait(0.5);
   green.write(1);
   wait(0.5);
 }
-void blueLED(){
+void blueBottomLED(){
   DigitalOut blue(PTB21);
   blue.write(0);
   wait(0.5);
@@ -24,8 +34,10 @@ void blueLED(){
 
 int main() {
     while(1) {
-      redLED();
-      greenLED();
-      blueLED();
+      redBottomLED();
+      greenBottomLED();
+      blueBottomLED();
+      redTopLED();
+
     }
 }
